@@ -24,15 +24,20 @@ class HelperFunction ():
         Input: price with alphanumeric and character signs. (string) 
         Output: price without any alphanumeric sign. (float)
         '''
-        trans_string = x.split('$')[1].split('.')[0]
-        return     self.to_float(self.remove_alphanum(trans_string))
+        # if np.isnan(x): pass 
+        if type(x) is str:
+            trans_string = x.split('$')[1].split('.')[0]
+            return    self.remove_alphanum(trans_string)
+        else: pass
 
     def fix_rate (self,x):
         '''
         Input: rate with alphanumeric and character signs. (string) 
         Output: rate without any alphanumeric sign. (int)
         '''
-        return     self.to_int(self.remove_alphanum(x))
+        # if np.isnan(x): pass 
+        if type(x) is str: return  self.remove_alphanum(x)
+        else: pass
 
     def remove_alphanum (self,x):
         '''
@@ -40,19 +45,36 @@ class HelperFunction ():
         Output: string without any alphanumeric sign.
         '''    
         return     re.sub(r'[^\w]','', x)
+        
+    def amenities_as_value (self,x):
+        '''
+        Input: amenities string with undesired signs
+        Output: length of strings list in x . (int) 
+        '''
+        amenity = x.replace('{','').replace('}','').replace('"','').replace(' ','_').replace(',',' ')
+        return len(amenity.split())
 
-    def to_int (self,x):
+    # def to_int (self,x):
+    #     '''
+    #     Input: string 
+    #     Output: int
+    #     '''    
+    #     return     int(x)
+    # def to_float (self,x):
+    #     '''
+    #     Input: string 
+    #     Output: float
+    #     '''    
+    #     return     float(x)
+    def to_boolean (self,x):
         '''
-        Input: string 
-        Output: int
+        Input: string, t or f
+        Output: int, 1 or 0
         '''    
-        return     int(x)
-    def to_float (self,x):
-        '''
-        Input: string 
-        Output: float
-        '''    
-        return     float(x)    
+        if x not in ['t','f'] : 
+            raise Exception("Wrong entry: Not a valid boolean string")
+        if x == 't': return 1
+        elif x == 'f': return 0
     def weekday (self,x):
         '''
         Input: weekday number from 0 to 6. (int)
