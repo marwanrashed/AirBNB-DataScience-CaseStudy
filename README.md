@@ -32,7 +32,7 @@ The following are the files available in this repository:
 
 * `AirBNB_Exploratory_Data_Analysis.ipynb` - a notebook of the analysis performed following the CRISP-DM process.
 
-* `BostonCalendar.csv` - csvs containing **home_id**, **date**, **availability**, and **price** for each home. ***Unused***
+* `BostonCalendar.csv` - csvs containing **home_id**, **date**, **availability**, and **price** for each home. 
 
 * `BostonListings.csv` - The main file of interest. It contains 96 features about the listings, which cover the price, host attributes, property attributes, date/time, neighbourhoods, and more unused features in the analysis. 
 
