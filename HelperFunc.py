@@ -86,3 +86,14 @@ class HelperFunction ():
             raise Exception("Wrong entry: Not a weekday valid number")
         for day_num, day_name in week_dict.items(): 
             if x == day_num: return day_name
+    def season (self,x):
+        '''
+        Input: Month of the year. (int)
+        Output: season of the year (string)
+        '''
+        season_dict = {'Winter': [12,1,2], 'Spring': [3,4,5]
+        ,'Summer': [6,7,8], 'Autumn': [9,10,11]}
+        if x not in np.arange (1,13,1): 
+            raise Exception("Wrong entry: Not a valid month")
+        for season, months in season_dict.items(): 
+            if x in months: return season
